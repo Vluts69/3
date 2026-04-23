@@ -7,19 +7,17 @@ body{
     position: relative;
 }
 
-#player1{
+#player{
 
     position: absolute;
 }
 
-.pilt{
+#image{
 
-    margin: 300px;
-    text-size: 200px;
     image-rendering: pixelated;
 }
 
-#pilt3{
+#tekst{
     color: white;
     margin: 10px;
     width: 90px;
@@ -27,4 +25,8 @@ body{
 }
 #nimii{
     color: orange;
+}
+.player{
+
+   margin:150px;
 }

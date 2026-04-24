@@ -4,7 +4,34 @@ const pilt2 = "https://tinkr.tech/sdb_apps/wanderworld/images/player.png";
 const skeleton = "https://tinkr.tech/sdb_apps/wanderworld/images/skeleton.png";
 
 
+
 setInterval(async function() {
+
+async function sendMessage() {
+  const messageData = {
+  "action": "join",
+  "username": "Alice"
+
+}
+
+  const response = await fetch('https://tinkr.tech/sdb/Vidrik%20Luts/Databaas', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(messageData)
+  });
+  
+  const result = await response.json();
+  console.log(result);
+  localStorage.setItem('player_key', 'Alice');
+
+}
+
+
+
+
+
 
   let response = await fetch(url);
   //console.log(response);
@@ -52,32 +79,13 @@ img.src = "https://tinkr.tech/" + player.image;
 
 newDiv.appendChild(img);
 //console.log(player);
-
+sendMessage();
 
 }
-}, 1000);
-
-
-async function sendMessage() {
-  const messageData = { text: 'Saada mulle teised karakterid vastu' };
-  const user = { name: 'Alice', age: 25 };
-
-  const response = await fetch('https://tinkr.tech/sdb/Vidrik%20Luts/Databaas', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(messageData, user)
-  });
-  
-  const result = await response.json();
-}
+}, 10000);
 
 
 
-
-       
-        
 
 
 

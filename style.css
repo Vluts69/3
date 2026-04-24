@@ -15,16 +15,42 @@ body{
 #image{
 
     image-rendering: pixelated;
+    height: 40px;
+
 }
 
 #tekst{
-    color: white;
-    margin: 10px;
-    width: 90px;
+   position: relative;
+    background: #054773;
+    color: #FFFFFF;
+    font-family: Courier New;
+    font-size: 14px;
+    line-height: 15px;
+    text-align: center;
+    width: 115px;
+    height: 40px;
+    border-radius: 20px;
+    padding: 10px;
+
+}
+#tekst:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    z-index: 1;
+    border-style: solid;
+    border-color: #054773 transparent;
+    border-width: 12px 13px 0;
+    bottom: -12px;
+    left: 24%;
+    margin-left: -13px;
+    margin-top: -20px;
     
 }
 #nimii{
     color: orange;
+    padding: 5px;
 }
 .player{
 

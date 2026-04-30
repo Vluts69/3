@@ -1,19 +1,16 @@
 const url = 'https://tinkr.tech/sdb/Vidrik%20Luts/Databaas';
 const players2 = document.querySelector(".world");
-const pilt2 = "https://tinkr.tech/sdb_apps/wanderworld/images/player.png";
-const skeleton = "https://tinkr.tech/sdb_apps/wanderworld/images/skeleton.png";
 
 
+let key = localStorage.getItem("player_key",);
 
 setInterval(async function() {
 
 async function sendMessage() {
   const messageData = {
   "action": "join",
-  "username": "Alice"
-
-}
-
+  "username": "Alice77",
+ }
   const response = await fetch('https://tinkr.tech/sdb/Vidrik%20Luts/Databaas', {
     method: 'POST',
     headers: {
@@ -21,12 +18,41 @@ async function sendMessage() {
     },
     body: JSON.stringify(messageData)
   });
-  
   const result = await response.json();
-  console.log(result);
-  localStorage.setItem('player_key', 'Alice');
+
+  Alice = result.player_key;
+  localStorage.setItem('player_key', "Alice");
+    console.log(result);
+}
+
+async function move() {
+  if (!key) return;
+let move2 = {
+"action": "move",
+  "player_key": key,
+  "x": 155,
+  "y": 203
+ }
+
+const response2 = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(move2)
+  });
 
 }
+sendMessage();
+
+
+
+
+
+
+
+
+
 
 
 
@@ -79,13 +105,10 @@ img.src = "https://tinkr.tech/" + player.image;
 
 newDiv.appendChild(img);
 //console.log(player);
-sendMessage();
+
+
+
+
 
 }
 }, 10000);
-
-
-
-
-
-

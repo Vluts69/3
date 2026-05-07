@@ -2,16 +2,16 @@ const url = 'https://tinkr.tech/sdb/Vidrik%20Luts/Databaas';
 const players2 = document.querySelector(".world");
 
 
-let key = localStorage.getItem("player_key",);
+let key = localStorage.getItem("player_key");
 
 setInterval(async function() {
 
 async function sendMessage() {
   const messageData = {
   "action": "join",
-  "username": "Alice77",
+  "username": "Alice2ss",
  }
-  const response = await fetch('https://tinkr.tech/sdb/Vidrik%20Luts/Databaas', {
+  const response = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -19,22 +19,34 @@ async function sendMessage() {
     body: JSON.stringify(messageData)
   });
   const result = await response.json();
-
-  Alice = result.player_key;
-  localStorage.setItem('player_key', "Alice");
+  if (result.player_key) {
+  key = result.player_key;
+  localStorage.setItem('player_key', key);
     console.log(result);
+    }
 }
 
-async function move() {
-  if (!key) return;
+if (!key) {
+sendMessage();
+} else (key);
+
+
+//MOVE
+
+
+players2.addEventListener("click", async function(e) {
+    x = e.offsetX;
+    y = e.offsetY;
+    let key = localStorage.getItem("player_key");
+
 let move2 = {
 "action": "move",
-  "player_key": key,
-  "x": 155,
-  "y": 203
- }
+"player_key": key,
+  x: x,
+  y: y
+ };
 
-const response2 = await fetch(url, {
+await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -42,18 +54,7 @@ const response2 = await fetch(url, {
     body: JSON.stringify(move2)
   });
 
-}
-sendMessage();
-
-
-
-
-
-
-
-
-
-
+});
 
 
 
@@ -80,7 +81,7 @@ players2.appendChild(newDiv);
 
 newDiv.style.position="absolute";
 newDiv.style.left= player.x + "px";
-newDiv.style.top= player.y + "py";
+newDiv.style.top= player.y + "px";
 
 //newDiv.appendChild(css);
 
@@ -111,4 +112,4 @@ newDiv.appendChild(img);
 
 
 }
-}, 10000);
+}, 1000);

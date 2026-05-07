@@ -4,7 +4,7 @@ body{
 }
 
 .world {
-    margin: 200px;
+   
     position: relative;
      border: 2px solid black;
     width: 800px;
@@ -60,5 +60,5 @@ body{
 }
 .player{
 
-   margin:150px;
+   margin:0px;
 }

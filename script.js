@@ -9,7 +9,7 @@ setInterval(async function() {
 async function sendMessage() {
   const messageData = {
   "action": "join",
-  "username": "Alice2ss",
+  "username": "Alice",
  }
   const response = await fetch(url, {
     method: 'POST',
@@ -28,7 +28,7 @@ async function sendMessage() {
 
 if (!key) {
 sendMessage();
-} else (key);
+};
 
 
 //MOVE
@@ -36,7 +36,7 @@ sendMessage();
 
 players2.addEventListener("click", async function(e) {
     x = e.offsetX;
-    y = e.offsetY;
+    y = e.offsetY ;
     let key = localStorage.getItem("player_key");
 
 let move2 = {
@@ -85,9 +85,33 @@ newDiv.style.top= player.y + "px";
 
 //newDiv.appendChild(css);
 
-const messg = document.createElement("div");
+const textin = document.getElementById("tekst3");
+const sendb = document.getElementById("tekstb");
+//tekst inpout alice
+sendb.addEventListener("click", async function(e) {
+let key = localStorage.getItem("player_key");
+let mssg = textin.value;
+
+let mesage = {
+  "action": "message",
+  "player_key" : key,
+  message: mssg
+};
+  await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(mesage)
+    
+ });
+});
+
+
+
+const messg = document.createElement("textarea");
 messg.id = "tekst";
-const msg = player.message;
+const msg = player.message ;
 messg.textContent = msg;
 newDiv.appendChild(messg, msg);
 //console.log(msg);

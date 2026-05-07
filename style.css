@@ -62,3 +62,19 @@ body{
 
    margin:0px;
 }
+
+#tekst22{
+    margin: 50px;
+}
+
+label {
+  display: block;
+  font:
+    1rem "Fira Sans",
+    sans-serif;
+}
+
+input,
+label {
+  margin: 0.2rem 0;
+}
